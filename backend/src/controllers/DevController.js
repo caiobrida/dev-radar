@@ -11,6 +11,13 @@ module.exports = {
         return res.json(devs);
     },
 
+    async show(req, res) {
+        const dev = await Dev.findById(req.params.id);
+        if(!dev) return res.status(400).send('Dev not found');
+
+        return res.json(dev);
+    },
+
     async store(req, res) {
         const { github_username, techs, latitude, longitude } = req.body;
 

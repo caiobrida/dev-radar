@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import Input from '../common/Input';
+
 function DevForm({ onSubmit }) {
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
@@ -40,49 +42,41 @@ function DevForm({ onSubmit }) {
     return(
         <form onSubmit={handleSubmit}>
           <div className='input-block'>
-            <label htmlFor='github_username'>Usuário do github</label>
-            <input 
-              name='github_username' 
-              id='github_username' 
-              required 
+            <Input 
+              for='github_username'
+              label='Usuário do github'
               value={github_username}
-              onChange={e => setGithubUsername(e.target.value)}
+              setAnState={setGithubUsername}
             />
           </div>
 
           <div className='input-block'>
-            <label htmlFor='techs'>Tecnologias</label>
-            <input 
-            name='techs' 
-            id='techs' 
-            required 
-            value={techs}
-            onChange={e => setTechs(e.target.value)}
-          />
+            <Input 
+              for='techs'
+              label='Tecnologias'
+              value={techs}
+              setAnState={setTechs}
+            />
           </div>
 
           <div className='input-group'>
             <div className='input-block'>
-              <label htmlFor='latitude'>Latitude</label>
-              <input 
-                type='number' 
-                name='latitude' 
-                id='latitude' 
-                value={latitude} 
-                required 
-                onChange={e => setLatitude(e.target.value)}  
+              <Input 
+                for='latitude'
+                label='Latitude'
+                value={latitude}
+                type='number'
+                setAnState={setLatitude}
               />
             </div>
 
             <div className='input-block'>
-              <label htmlFor='longitude'>Longitude</label>
-              <input 
-                type='number' 
-                name='longitude' 
-                id='longitude' 
-                value={longitude} 
-                required
-                onChange={e => setLongitude(e.target.value)}   
+              <Input 
+                  for='longitude'
+                  label='Longitude'
+                  value={longitude}
+                  type='number'
+                  setAnState={setLongitude}
               />
             </div>
           </div>
